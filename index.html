@@ -108,7 +108,7 @@
             flex-direction: column;
             align-items: center;
             background: rgba(20, 20, 30, 0.4);
-            overflow-y: auto; /* Added for potentially long sidebars */
+            overflow-y: auto; /* Allows scrolling if content overflows */
         }
 
         .profile-image {
@@ -123,7 +123,7 @@
             justify-content: center;
             align-items: center;
             box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
-            flex-shrink: 0; /* Prevent shrinking */
+            flex-shrink: 0;
         }
 
         .profile-image img {
@@ -142,18 +142,17 @@
         .title {
             font-size: 13px;
             opacity: 0.7;
-            margin-bottom: 10px; /* Reduced margin */
+            margin-bottom: 10px;
             text-align: center;
         }
 
-        /* Added style for View Counter */
         .view-counter {
-             margin-bottom: 16px; /* Space below counter */
-             flex-shrink: 0; /* Prevent shrinking */
+             margin-bottom: 16px;
+             flex-shrink: 0;
         }
          .view-counter img {
-             display: block; /* Ensure it behaves like a block element */
-             max-width: 100%; /* Prevent overflow */
+             display: block;
+             max-width: 100%;
              height: auto;
         }
 
@@ -162,7 +161,7 @@
             justify-content: center;
             gap: 12px;
             margin-bottom: 24px; /* Space below social links */
-             flex-shrink: 0; /* Prevent shrinking */
+             flex-shrink: 0;
         }
 
         .social-link {
@@ -177,7 +176,7 @@
             color: var(--text-secondary);
             transition: all 0.3s;
             border: 1px solid var(--border-color);
-            text-decoration: none; /* Remove underline */
+            text-decoration: none;
         }
 
         .social-link:hover {
@@ -189,9 +188,9 @@
 
         .nav {
             width: 100%;
-            /* margin-top: auto; */ /* REMOVE OR COMMENT OUT THIS LINE */
-            margin-top: 20px;   /* OPTIONAL: Add a specific margin if needed */
-            flex-shrink: 0; /* Keep this */
+            /* margin-top: auto; */ /* <<< REMOVED THIS LINE */
+            margin-top: 20px; /* Added a specific margin for controlled spacing */
+            flex-shrink: 0;
         }
 
         .nav-item {
@@ -203,7 +202,7 @@
             cursor: pointer;
             transition: all 0.3s;
             color: var(--text-secondary);
-            text-decoration: none; /* Remove underline if it behaves like a link */
+            text-decoration: none;
         }
 
         .nav-item:hover {
@@ -383,20 +382,12 @@
             width: 100%;
             height: 160px;
             background-color: rgba(40, 40, 50, 0.6);
-            /* Consider adding a placeholder image or icon */
             display: flex;
             align-items: center;
             justify-content: center;
             color: var(--text-secondary);
             font-size: 2rem;
         }
-         /* Example placeholder */
-        .project-image::before {
-            /* content: '\f121'; /* Font Awesome code icon */
-            /* font-family: 'Font Awesome 6 Free'; */
-            /* font-weight: 900; */
-        }
-
         .project-info {
             padding: 20px;
         }
@@ -412,7 +403,7 @@
             opacity: 0.7;
             margin-bottom: 16px;
             line-height: 1.5;
-            min-height: 42px; /* Give description area some consistent space */
+            min-height: 42px;
         }
 
         .project-links {
@@ -494,7 +485,7 @@
             font-size: 14px;
             cursor: pointer;
             transition: transform 0.3s, box-shadow 0.3s;
-            display: inline-flex; /* Changed to inline-flex */
+            display: inline-flex;
             align-items: center;
             justify-content: center;
         }
@@ -508,8 +499,6 @@
             box-shadow: 0 5px 15px rgba(99, 102, 241, 0.4);
         }
 
-
-        /* --- New Discord Styles --- */
         .discord-profiles {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
@@ -520,7 +509,7 @@
         .discord-profile {
             background: var(--card-bg);
             border-radius: 12px;
-            padding: 20px 15px; /* More padding */
+            padding: 20px 15px;
             border: 1px solid var(--border-color);
             display: flex;
             flex-direction: column;
@@ -537,19 +526,19 @@
         }
 
         .discord-profile img {
-            width: 70px; /* Slightly larger PFP */
+            width: 70px;
             height: 70px;
             border-radius: 50%;
             margin-bottom: 12px;
             object-fit: cover;
-            border: 2px solid var(--border-color); /* Add border to PFP */
+            border: 2px solid var(--border-color);
         }
 
         .discord-profile span {
             font-size: 14px;
             font-weight: 500;
             color: var(--text-color);
-            word-break: break-all; /* Prevent long usernames overflowing */
+            word-break: break-all;
         }
 
         #copy-feedback {
@@ -557,12 +546,10 @@
             text-align: center;
             color: var(--accent-color);
             font-weight: bold;
-            height: 20px; /* Reserve space */
+            height: 20px;
             opacity: 0;
             transition: opacity 0.5s ease-out;
         }
-        /* --- End New Discord Styles --- */
-
 
         ::-webkit-scrollbar {
             width: 6px;
@@ -581,10 +568,11 @@
             background: rgba(99, 102, 241, 0.6);
         }
 
+        /* --- Media Queries --- */
         @media (max-width: 768px) {
             .app-container {
                 height: 95vh;
-                width: 95%; /* Slightly smaller width on mobile */
+                width: 95%;
             }
 
             .app-content {
@@ -596,13 +584,12 @@
                 border-right: none;
                 border-bottom: 1px solid var(--border-color);
                 padding: 16px;
-                max-height: 45vh; /* Limit sidebar height on mobile */
-                overflow-y: auto; /* Allow scrolling if content overflows */
-                align-items: center; /* Center items */
-                flex-direction: column; /* Ensure vertical layout */
+                max-height: 45vh;
+                overflow-y: auto;
+                align-items: center;
+                flex-direction: column;
             }
 
-             /* Adjust profile/name/title layout for mobile */
             .profile-image {
                 width: 80px;
                 height: 80px;
@@ -611,36 +598,33 @@
             .name { font-size: 18px; }
             .title { font-size: 12px; margin-bottom: 8px; }
             .view-counter { margin-bottom: 12px; }
-            .social-links { margin-bottom: 16px; }
-
+            .social-links { margin-bottom: 16px; } /* Adjust margin */
 
             .nav {
-                /* Keep nav vertical on mobile for clarity */
                 width: 100%;
-                max-width: 200px; /* Optional: limit width */
-                margin-top: 16px; /* Add space above nav */
-                flex-direction: column; /* Stack nav items */
+                max-width: 200px;
+                margin-top: 16px; /* Specific margin for mobile */
+                flex-direction: column;
             }
 
             .nav-item {
-                padding: 10px 14px; /* Adjust padding */
-                justify-content: center; /* Center text/icon */
+                padding: 10px 14px;
+                justify-content: center;
             }
-             .nav-item i { margin-right: 8px; } /* Reduce icon margin */
-
+            .nav-item i { margin-right: 8px; }
 
             .main-content {
                 padding: 20px;
-                 flex: 1; /* Allow main content to take remaining space */
-                 overflow-y: auto; /* Ensure main content is scrollable */
+                flex: 1;
+                overflow-y: auto;
             }
 
-            .projects, .skills, .discord-profiles { /* Apply to new discord section too */
-                grid-template-columns: 1fr; /* Single column layout */
+            .projects, .skills, .discord-profiles {
+                grid-template-columns: 1fr;
             }
 
             .stat-card {
-                 min-width: 100px; /* Adjust min-width for smaller screens */
+                 min-width: 100px;
                  padding: 15px;
             }
              .stat-number { font-size: 24px; }
@@ -651,24 +635,21 @@
         }
 
          @media (max-width: 480px) {
-              /* Further adjustments for very small screens if needed */
               .profile-image {
                   width: 70px;
                   height: 70px;
               }
              .name { font-size: 16px; }
              .stat-card { flex-basis: calc(50% - 8px); } /* Two cards per row */
-
          }
-
     </style>
-    <!-- Make sure Font Awesome is included -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body>
     <div class="app-container">
         <div class="app-header">
-            <div class="window-controls">
+            <!-- Header content -->
+             <div class="window-controls">
                 <div class="control close"></div>
                 <div class="control minimize"></div>
                 <div class="control maximize"></div>
@@ -677,21 +658,22 @@
         </div>
         <div class="app-content">
             <div class="sidebar">
+                <!-- Sidebar content -->
                 <div class="profile-image">
                     <img src="https://i.ibb.co/0VjsS1Q7/112ed13b65435c064ea0f3efa4ba0151.jpg" alt="Profile Picture">
                 </div>
                 <h1 class="name">VxBtw</h1>
                 <p class="title">Wanna Be Cybersecurity Specialist</p>
-                <div class="view-counter"> <!-- Added a div wrapper for better control -->
+                <div class="view-counter">
                     <img src="https://hits.sh/github.com/VxBtw/AboutMe.svg" alt="View Counter">
                 </div>
                 <div class="social-links">
                     <a href="https://github.com/VxBtw" target="_blank" rel="noopener noreferrer" class="social-link"><i class="fab fa-github"></i></a>
                     <a href="https://www.youtube.com/@VxBtw" target="_blank" rel="noopener noreferrer" class="social-link"><i class="fab fa-youtube"></i></a>
                     <a href="https://x.com/AusFights" target="_blank" rel="noopener noreferrer" class="social-link"><i class="fab fa-twitter"></i></a>
-                    <a href="https://youtu.be/NH5b8R7x0tY" target="_blank" rel="noopener noreferrer" class="social-link"><i class="fab fa-instagram"></i></a> <!-- Assuming this is intentional -->
+                    <a href="https://youtu.be/NH5b8R7x0tY" target="_blank" rel="noopener noreferrer" class="social-link"><i class="fab fa-instagram"></i></a>
                 </div>
-
+                <!-- Navigation (should now be positioned correctly) -->
                 <div class="nav">
                     <div class="nav-item active" data-tab="about">
                         <i class="fas fa-user"></i> About
@@ -702,11 +684,9 @@
                     <div class="nav-item" data-tab="projects">
                         <i class="fas fa-briefcase"></i> Projects
                     </div>
-                     <!-- New Discord Tab -->
                     <div class="nav-item" data-tab="discord">
                         <i class="fab fa-discord"></i> Discord
                     </div>
-                     <!-- End New Discord Tab -->
                     <div class="nav-item" data-tab="contact">
                         <i class="fas fa-envelope"></i> Contact
                     </div>
@@ -714,7 +694,8 @@
             </div>
 
             <div class="main-content">
-                <div class="content-section active" id="about">
+                <!-- Main content sections (About, Skills, Projects, Discord, Contact) -->
+                 <div class="content-section active" id="about">
                     <h2 class="section-title">About Me</h2>
                     <p class="about-text">
                         I enjoy coding, game hacking and music, i also enjoy making "rats" and etc
@@ -806,8 +787,7 @@
                     <p class="about-text">
                         None published yet. Check back later!
                     </p>
-
-                    <div class="projects">
+                     <div class="projects">
                         <!-- Placeholder Projects -->
                         <div class="project-card">
                             <div class="project-image"></div>
@@ -842,55 +822,43 @@
                                 </div>
                             </div>
                         </div>
-                        <!-- End Placeholder Projects -->
                     </div>
                 </div>
 
-                 <!-- New Discord Section -->
                 <div class="content-section" id="discord">
                     <h2 class="section-title">Discord</h2>
                     <p class="about-text">
                         Click on my profile below to copy my Discord username to your clipboard.
                     </p>
                     <div class="discord-profiles">
-                        <!-- Profile 1 -->
                         <div class="discord-profile" data-username="VxBtw11">
                             <img src="https://i.ibb.co/0VjsS1Q7/112ed13b65435c064ea0f3efa4ba0151.jpg" alt="Discord PFP">
                             <span>VxBtw11</span>
                         </div>
-                        <!-- Profile 2 -->
                         <div class="discord-profile" data-username="sudo.apt.install">
                             <img src="https://i.ibb.co/rfp1Vg47/35a42ae1daae993b306ed5383056a82e.jpg" alt="Discord PFP">
-                            <span>VxBtw11</span>
+                            <span>Kali</span>
                         </div>
-                        <!-- Profile 3 -->
-                        <div class="discord-profile" data-username="skidpaster">
+                        <div class="discord-profile" data-username="Skidpaster">
                             <img src="https://i.ibb.co/VYJHSXNf/876720e867c3cf66e6ba5f2ebcd84191.jpg" alt="Discord PFP">
-                            <span>VxBtw11</span>
+                            <span>Skidpaster</span>
                         </div>
                     </div>
-                    <div id="copy-feedback"></div> <!-- Feedback message area -->
+                    <div id="copy-feedback"></div>
                 </div>
-                 <!-- End New Discord Section -->
 
                 <div class="content-section" id="contact">
                     <h2 class="section-title">Contact</h2>
                     <p class="about-text">
                         You can reach me on Discord at <strong>VxBtw11</strong> (click the Discord tab profile to copy!). Check the sidebar for my other social links.
                     </p>
-                    <!-- Optional: Add a contact form back if needed -->
-                    <!--
-                    <form class="contact-form">
-                         ... form elements ...
-                    </form>
-                    -->
                 </div>
-
             </div> <!-- End main-content -->
         </div> <!-- End app-content -->
     </div> <!-- End app-container -->
 
     <script>
+        // Javascript remains the same as the previous version
         document.addEventListener('DOMContentLoaded', function() {
             // Tab switching functionality
             const navItems = document.querySelectorAll('.nav-item');
@@ -898,24 +866,16 @@
 
             navItems.forEach(item => {
                 item.addEventListener('click', function() {
-                    // Don't switch tab if already active
                     if (this.classList.contains('active')) {
                         return;
                     }
-
-                    // Remove active class from all nav items and content sections
                     navItems.forEach(ni => ni.classList.remove('active'));
                     contentSections.forEach(cs => cs.classList.remove('active'));
-
-                    // Add active class to clicked nav item
                     this.classList.add('active');
-
-                    // Show corresponding content section
                     const tabId = this.getAttribute('data-tab');
                     const targetSection = document.getElementById(tabId);
                     if (targetSection) {
                          targetSection.classList.add('active');
-                         // Optional: Scroll to top of new section
                          document.querySelector('.main-content').scrollTop = 0;
                     } else {
                         console.error('Content section not found for tab:', tabId);
@@ -923,96 +883,64 @@
                 });
             });
 
-
-            // Window controls functionality (for demo only - kept original alerts)
+            // Window controls functionality
             const closeBtn = document.querySelector('.control.close');
             const minimizeBtn = document.querySelector('.control.minimize');
             const maximizeBtn = document.querySelector('.control.maximize');
             const appContainer = document.querySelector('.app-container');
 
             if (closeBtn) {
-                closeBtn.addEventListener('click', function() {
-                    alert('Close button clicked (demo)');
-                });
+                closeBtn.addEventListener('click', () => alert('Close button clicked (demo)'));
             }
-
             if (minimizeBtn) {
-                minimizeBtn.addEventListener('click', function() {
-                    alert('Minimize button clicked (demo)');
-                });
+                minimizeBtn.addEventListener('click', () => alert('Minimize button clicked (demo)'));
             }
-
-            if (maximizeBtn && appContainer) {
+             if (maximizeBtn && appContainer) {
                  let isMaximized = false;
                  const originalWidth = appContainer.style.width || '90%';
                  const originalHeight = appContainer.style.height || '85vh';
                  const originalBorderRadius = appContainer.style.borderRadius || '16px';
+                 const originalMaxWidth = appContainer.style.maxWidth || '1000px';
 
                  maximizeBtn.addEventListener('click', function() {
                      if (isMaximized) {
                          appContainer.style.width = originalWidth;
                          appContainer.style.height = originalHeight;
                          appContainer.style.borderRadius = originalBorderRadius;
-                         appContainer.style.maxWidth = '1000px'; // Restore max-width
+                         appContainer.style.maxWidth = originalMaxWidth;
                      } else {
                          appContainer.style.width = '100%';
                          appContainer.style.height = '100vh';
                          appContainer.style.borderRadius = '0';
-                         appContainer.style.maxWidth = 'none'; // Remove max-width when maximized
+                         appContainer.style.maxWidth = 'none';
                      }
                      isMaximized = !isMaximized;
-                     // alert('Maximize button clicked (demo)'); // Can remove alert if animation is enough
                  });
              }
 
-            // --- New Discord Copy Functionality ---
+            // Discord Copy Functionality
             const discordProfiles = document.querySelectorAll('.discord-profile');
             const copyFeedback = document.getElementById('copy-feedback');
-            let feedbackTimeout; // To manage the feedback message timeout
+            let feedbackTimeout;
 
             discordProfiles.forEach(profile => {
                 profile.addEventListener('click', function() {
                     const username = this.getAttribute('data-username');
-
-                    // Use Clipboard API
                     navigator.clipboard.writeText(username).then(() => {
-                        // Success feedback
-                        console.log('Username copied to clipboard:', username);
                         copyFeedback.textContent = `Username "${username}" copied!`;
                         copyFeedback.style.opacity = '1';
-
-                        // Clear previous timeout if it exists
-                        if (feedbackTimeout) {
-                            clearTimeout(feedbackTimeout);
-                        }
-
-                        // Hide feedback message after a delay
-                        feedbackTimeout = setTimeout(() => {
-                            copyFeedback.style.opacity = '0';
-                             // Optional: Clear text after fade out
-                             // setTimeout(() => { copyFeedback.textContent = ''; }, 500);
-                        }, 2500); // Hide after 2.5 seconds
-
+                        if (feedbackTimeout) clearTimeout(feedbackTimeout);
+                        feedbackTimeout = setTimeout(() => { copyFeedback.style.opacity = '0'; }, 2500);
                     }).catch(err => {
-                        // Error feedback (less likely with modern browsers, but good practice)
                         console.error('Failed to copy username: ', err);
                         copyFeedback.textContent = 'Failed to copy!';
                         copyFeedback.style.opacity = '1';
-
-                        if (feedbackTimeout) {
-                             clearTimeout(feedbackTimeout);
-                         }
-                        feedbackTimeout = setTimeout(() => {
-                            copyFeedback.style.opacity = '0';
-                             // setTimeout(() => { copyFeedback.textContent = ''; }, 500);
-                        }, 2500);
-                        // Fallback for older browsers or if permissions fail
+                         if (feedbackTimeout) clearTimeout(feedbackTimeout);
+                        feedbackTimeout = setTimeout(() => { copyFeedback.style.opacity = '0'; }, 2500);
                         alert('Could not copy username automatically. Please copy manually: ' + username);
                     });
                 });
             });
-             // --- End New Discord Copy Functionality ---
-
         });
     </script>
 </body>
